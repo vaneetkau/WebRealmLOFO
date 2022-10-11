@@ -35,7 +35,7 @@ const db = getDatabase();
 
             console.log("Posting Stuff");
 
-            set(ref(db, '/posts/' + 'post8'), {
+            set(ref(db, '/posts/' + 'post9'), {
                     lost: postlostcheckbox.value,
                     name: postname.value,
                     desc: postdesc.value

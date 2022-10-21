@@ -5,30 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/homepage.css">
+    <link rel="stylesheet" href="../src/styles/index.css">
 
 </head>
 <body>
 
-    <h2>Add Post</h2>
-    <form>
+    <header class="header">
+        <!-- anything shell header related goes here. e.g. top menu -->
+        <div class="toolbar">
+          <a href="#homepage">Home</a>
+          <a href="#addpost">AddPost</a>
+          <a href="#chat">Chat</a>
+        </div>
+      </header>
+      <!-------------------------------->
+      <div id="mainArea">
+        <!-- the main part will be dynamically updated as each page loads -->
+      </div>
+      <!-------------------------------->
+      <script src="../src/js/routing.js"></script>
+      <script src="../src/js/script.js"></script>
 
-        <label for="lostcheckbox">Lost or Found (Checked if Lost) : </label>
-        <input type="checkbox" id="postlostcheckbox" checked required>
-        <br>
-
-        <label for="name">Name : </label>
-        <input type="text" id="postname" required>
-        <br>
-        
-        <label for="desc">Description : </label>
-        <input type="text" id="postdesc" required>
-        <br>
-
-        <button type="submit" id="submitpostbutton">Submit Post</button>        
-
-    </form>
-
-    <script src="bundle.js"></script>
+    <script src="../dist/js/index.js"></script>
 </body>
 </html>

@@ -1,7 +1,14 @@
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase,ref ,set } from "firebase/database";
+
+// const initializeApp = require('firebase/app');
+// const getAnalytics = require('firebase/analytics');
+// const getDatabase = require('firebase/database');
+// const ref = require('firebase/database');
+// const set = require('firebase/database');
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,7 +31,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-console.log("Slim Shady");
+console.log("Slim Shady Posting.....");
 
 const db = getDatabase();
 
@@ -35,7 +42,7 @@ const db = getDatabase();
 
             console.log("Posting Stuff");
 
-            set(ref(db, '/posts/' + 'post9'), {
+            set(ref(db, '/posts/' + 'post11'), {
                     lost: postlostcheckbox.value,
                     name: postname.value,
                     desc: postdesc.value

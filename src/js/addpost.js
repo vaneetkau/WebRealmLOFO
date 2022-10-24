@@ -1,14 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getDatabase,ref ,set } from "firebase/database";
-
-// const initializeApp = require('firebase/app');
-// const getAnalytics = require('firebase/analytics');
-// const getDatabase = require('firebase/database');
-// const ref = require('firebase/database');
-// const set = require('firebase/database');
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,25 +21,39 @@ measurementId: "G-ZZH3G9HQHW"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore();
 
+const colRef = collection(db, 'Posts');
 
 console.log("Slim Shady Posting.....");
 
+/*
 const db = getDatabase();
 
-        submitpostbutton.addEventListener('click', submitForm);
+submitpostbutton.addEventListener('click', submitForm);
 
-        function submitForm(e){
-            e.preventDefault();
+function submitForm(e){
+        e.preventDefault();
 
-            console.log("Posting Stuff");
+        console.log("Posting Stuff");
 
-            set(ref(db, '/posts/' + 'post11'), {
+        set(ref(db, '/posts/' + 'post11'), {
                     lost: postlostcheckbox.value,
                     name: postname.value,
                     desc: postdesc.value
                 });
-        };
-
-        
+};
+*/
+submitpostbutton.addEventListener('click', () => {
+        addDoc(colRef, {
+                title: postname.value,
+                description : postdesc.value,
+                lost: true
+        })
+        .then(() => {
+                postForm.reset();
+        })
+        .catch((error) => {
+                console.log(error.message);
+        })
+});

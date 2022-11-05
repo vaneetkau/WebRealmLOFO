@@ -27,7 +27,25 @@ getDocs(colRef)
         let posts = [];
         snapshot.docs.forEach((doc) => {
             posts.push({...doc.data(), id : doc.id})
-            postsList.innerHTML += doc.data().title + "</br>";
+            postview.innerHTML += "" + //doc.data().title + "</br>" + doc.data().description + "</br>";
+                `<div class="item  col-xs-3 col-lg-3">
+                    <div class="thumbnail">
+                        <img class="group list-group-image" src="https://vancouver.ca/images/cov/feature/about-vancouver-landing-size.jpg" alt="" />
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading">
+                                ${doc.data().title}</h4>
+                            <p class="group inner list-group-item-text">
+                                ${doc.data().description} </p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <p class="lead">
+                                        ${doc.data().possiblelostdatetime}</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>`
+                    ;
         });
         console.log(posts);
 

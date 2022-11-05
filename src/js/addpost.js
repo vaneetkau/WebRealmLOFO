@@ -44,13 +44,21 @@ function submitForm(e){
                 });
 };
 */
-submitpostbutton.addEventListener('click', () => {
+submitpostbutton.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
         addDoc(colRef, {
-                title: postname.value,
-                description : postdesc.value,
-                lost: true
+                islost: lostRadioButton.checked,
+                isfound: foundRadioButton.checked,
+                title: title.value,
+                description : desc.value,
+                reward: reward.value,
+                possiblelostdatetime: possibleLostDateTime.value,
+                postcreatedtimestamp: Date.now()
         })
         .then(() => {
+                console.log("Post Submitted");
                 postForm.reset();
         })
         .catch((error) => {
